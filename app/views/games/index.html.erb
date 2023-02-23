@@ -1,0 +1,42 @@
+<h1>Team Data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>League</th>
+      <th>Season</th>
+      <th>Team Name</th>
+      <th>Team Size</th>
+      <th>Average Age</th>
+      <th>Foreigners</th>
+      <th>National Team Players</th>
+      <th>Team Value</th>
+      <th>Venue</th>
+      <th>Venue Capacity</th>
+      <th>Manager Name</th>
+      <th>Manager Age</th>
+      <th>Manager Appointed</th>
+      <th>Manager Contract Expires</th>
+      <th>Manager Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @team_data["league"] %></td>
+      <td><%= @team_data["season"] %></td>
+      <td><%= @team_data["name"] %></td>
+      <td><%= @team_data["teamSize"] %></td>
+      <td><%= @team_data["averageAge"] %></td>
+      <td><%= @team_data["foreigners"] %></td>
+      <td><%= @team_data["nationaTeamPlayers"] %></td>
+      <td><%= @team_data["teamValue"] %></td>
+      <td><%= @team_data["venue"] %></td>
+      <td><%= @team_data["venueCapacity"] %></td>
+      <td><%= @team_data["managers"][0]["name"] %></td>
+      <td><%= @team_data["managers"][0]["age"] %></td>
+      <td><%= @team_data["managers"][0]["appointed"] %></td>
+      <td><%= @team_data["managers"][0]["contractExpires"] %></td>
+      <td><%= @team_data["managers"][0]["active"] %></td>
+    </tr>
+  </tbody>
+</table>
