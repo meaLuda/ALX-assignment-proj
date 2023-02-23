@@ -3,11 +3,11 @@
 ## By: munyalamea@gmail.com
 
 ## Project: 
-<p>View live Football Game Matches and get Alerts and Notifications on Match Resutls via SMS and Email</p>
+<p>View Football Team Game Standings and get Alerts and Notifications later on on your teams favorite via SMS and Email</p>
 
 ## Description: 
 
-<p>This is a Ruby On Rails project web app that enables to view football matches that are ongoing from an API providing game matches that they would also be able to like games that they would love to get their results on. It will later on enable users to subscribe to notifications via SMS and Email.</p>
+<p>This is a Ruby On Rails project web app that enables to English Premier League Standings that are ongoing from an API providing game matches that they would also be able to like games that they would love to get their results on. It will later on enable users to subscribe to notifications via SMS and Email.</p>
 
 ## Installation:
 <p>For us busy folks who would like to get notifications on the results of the games we love, but don't have time to check the results, this app will enable you to subscribe to notifications via SMS and Email.

@@ -1,42 +1,31 @@
-<h1>Team Data</h1>
+<h1>English Premier League Standings</h1>
+<h2>Welcome To My Game.com Team Yako Updates Zako</h2>
+<h3>Season 2023</h3>
 
 <table>
   <thead>
     <tr>
-      <th>League</th>
-      <th>Season</th>
-      <th>Team Name</th>
-      <th>Team Size</th>
-      <th>Average Age</th>
-      <th>Foreigners</th>
-      <th>National Team Players</th>
-      <th>Team Value</th>
-      <th>Venue</th>
-      <th>Venue Capacity</th>
-      <th>Manager Name</th>
-      <th>Manager Age</th>
-      <th>Manager Appointed</th>
-      <th>Manager Contract Expires</th>
-      <th>Manager Active</th>
+      <th>Rank</th>
+      <th>Team</th>
+      <th>Games Played</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Ties</th>
+     
+      <th>Like team for update</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><%= @team_data["league"] %></td>
-      <td><%= @team_data["season"] %></td>
-      <td><%= @team_data["name"] %></td>
-      <td><%= @team_data["teamSize"] %></td>
-      <td><%= @team_data["averageAge"] %></td>
-      <td><%= @team_data["foreigners"] %></td>
-      <td><%= @team_data["nationaTeamPlayers"] %></td>
-      <td><%= @team_data["teamValue"] %></td>
-      <td><%= @team_data["venue"] %></td>
-      <td><%= @team_data["venueCapacity"] %></td>
-      <td><%= @team_data["managers"][0]["name"] %></td>
-      <td><%= @team_data["managers"][0]["age"] %></td>
-      <td><%= @team_data["managers"][0]["appointed"] %></td>
-      <td><%= @team_data["managers"][0]["contractExpires"] %></td>
-      <td><%= @team_data["managers"][0]["active"] %></td>
-    </tr>
+    <% @standings.each do |team| %>
+      <tr>
+        <td><%= team["stats"]["rank"] %></td>
+        <td><%= team["team"]["name"] %></td>
+        <td><%= team["stats"]["gamesPlayed"] %></td>
+        <td><%= team["stats"]["wins"] %></td>
+        <td><%= team["stats"]["losses"] %></td>
+        <td><%= team["stats"]["ties"] %></td>
+        <td><button>👍</button></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
