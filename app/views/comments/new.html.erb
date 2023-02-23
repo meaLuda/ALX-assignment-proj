@@ -1,0 +1,10 @@
+<%= form_with(model: [@game, @comment], url: game_comments_path(@game)) do |form| %>
+    <%= form.label :comment_is %>
+    <%= form.text_field :comment_is %>
+  
+    <%= form.submit %>
+<% end %>
+
+<br>
+
+<%= link_to 'Back to Game', game_path(@game) %>
