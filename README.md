@@ -1,4 +1,4 @@
-# ALX - Project Assignment: 2/22/2023
+# ALX - Project Assignment: 2023
 
 ## By: munyalamea@gmail.com
 
