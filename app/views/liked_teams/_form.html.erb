@@ -1,0 +1,17 @@
+<%= form_with(model: liked_team) do |form| %>
+  <% if liked_team.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(liked_team.errors.count, "error") %> prohibited this liked_team from being saved:</h2>
+
+      <ul>
+        <% liked_team.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

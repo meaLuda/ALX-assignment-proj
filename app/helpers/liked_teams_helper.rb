@@ -1,0 +1,2 @@
+module LikedTeamsHelper
+end

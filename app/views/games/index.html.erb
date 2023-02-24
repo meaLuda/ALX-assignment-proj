@@ -1,7 +1,10 @@
+<div class="container" align="center">
 <h1>English Premier League Standings</h1>
 <h2>Welcome To My Game.com Team Yako Updates Zako</h2>
+<hr>
 <h3>Season 2023</h3>
-
+<img src="https://thesportslite.com/wp-content/uploads/2021/09/English-Premier-League-.jpeg" alt="EPL Logo">
+<hr>
 <table>
   <thead>
     <tr>
@@ -23,8 +26,13 @@
         <td><%= team["stats"]["wins"] %></td>
         <td><%= team["stats"]["losses"] %></td>
         <td><%= team["stats"]["ties"] %></td>
-        <td><button>👍</button></td>
+        <td><%= button_to '👍', like_standings_path, method: :post, params: { 
+          team_rank: team["stats"]["rank"],team_name:team["team"]["name"], 
+          games_played: team["stats"]["gamesPlayed"], wins: team["stats"]["wins"],
+          losses: team["stats"]["losses"], ties: team["stats"]["ties"]
+        } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

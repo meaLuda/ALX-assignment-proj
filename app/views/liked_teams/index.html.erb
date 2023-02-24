@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Liked teams</h1>
+
+<div id="liked_teams">
+  <% @liked_teams.each do |liked_team| %>
+    <%= render liked_team %>
+    <p>
+      <%= link_to "Show this liked team", liked_team %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New liked team", new_liked_team_path %>

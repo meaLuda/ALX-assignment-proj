@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @liked_team %>
+
+<div>
+  <%= link_to "Edit this liked team", edit_liked_team_path(@liked_team) %> |
+  <%= link_to "Back to liked teams", liked_teams_path %>
+
+  <%= button_to "Destroy this liked team", @liked_team, method: :delete %>
+</div>

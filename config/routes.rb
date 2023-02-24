@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-    resources :games, only: [:index]
-  
-    root 'games#index'
-  end
+  resources :liked_teams
+  resources :games, only: [:index]
+
+  root 'games#index'
+
+  # Save game on like
+  post 'standings/like', to: 'standings#like', as: 'like_standings'
+end

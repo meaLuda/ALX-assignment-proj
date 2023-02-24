@@ -1,19 +1,17 @@
-# Dockerfile
+# get the base image
+FROM ruby:3.0.0
 
-# Use the official Ruby image as the parent image
-FROM ruby:7.0.0
+# run updates 
+RUN apt-get update -qq \
+&& apt-get install -y 
 
-# Set the working directory to /football-matches-app
-WORKDIR /football-matches-app
+ADD . /app
 
-# Copy the Gemfile and Gemfile.lock into the container
-COPY Gemfile Gemfile.lock ./
+WORKDIR /app
 
-# Install the required gems in the container
+
 RUN bundle install
 
-# Copy the rest of the application code into the container
-COPY . .
+EXPOSE 3000
 
-# Start the Rails server
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bash"]

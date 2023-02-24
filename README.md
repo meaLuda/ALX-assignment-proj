@@ -48,12 +48,42 @@ $rails bin/rails server
 * Listening on http://127.0.0.1:3000
 ```
 
-## Docker Setup:
-
-
 ## HomePage:
 <img
-  src="./docs_image/homapage.png"
+  src="./docs_image/a.png"
   alt="Alt text"
   title="Optional title"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img
+  src="./docs_image/b.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img
+  src="./docs_image/c.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img
+  src="./docs_image/d.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+## Docker Setup:
+
+## Windows:
+
+```R
+$ docker compose up --build
+
+```
+
+Once the container is up and running, you can access the app on your browser at http://localhost:3000
+
+
+<p>If you encounter an error “ActiveRecord::NoDatabaseError” then run the following command to create the database.</p>
+
+```R
+$ docker-compose run web rake db:create
+```

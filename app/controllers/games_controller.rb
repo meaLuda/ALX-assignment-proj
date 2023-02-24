@@ -16,8 +16,8 @@ class GamesController < ApplicationController
       request["X-RapidAPI-Host"] = 'premier-league-standings1.p.rapidapi.com'
       
       response = http.request(request)
-      # puts "-------- response ----------"
-      # puts response.read_body
+      puts "-------- response ----------"
+      puts response.read_body
       @standings = JSON.parse(response.read_body)
     end
   
