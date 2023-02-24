@@ -1,5 +1,5 @@
 # get the base image
-FROM ruby:3.0.0
+FROM ruby:3.1.3-slim-buster
 
 # run updates 
 RUN apt-get update -qq \
