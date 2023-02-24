@@ -75,7 +75,7 @@ $rails bin/rails server
 ## Windows:
 
 ```R
-$ docker compose up --build
+$ docker-compose up -d
 
 ```
 
@@ -86,4 +86,10 @@ Once the container is up and running, you can access the app on your browser at 
 
 ```R
 $ docker-compose run web rake db:create
+```
+
+<p>Perform Migration</p>
+
+```R
+$ docker-compose exec app bundle exec rake db:setup db:migrate
 ```
