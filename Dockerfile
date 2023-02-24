@@ -1,48 +1,36 @@
 # get the base image
-FROM ruby:3.1.3-slim-buster
+FROM ruby:3.1.3
 
-# throw errors if Gemfile has been modified since Gemfile.lock
-RUN apk add --update --no-cache \
-      binutils-gold \
-      build-base \
-      curl \
-      file \
-      g++ \
-      gcc \
-      git \
-      less \
-      libstdc++ \
-      libffi-dev \
-      libc-dev \ 
-      linux-headers \
-      libxml2-dev \
-      libxslt-dev \
-      libgcrypt-dev \
-      make \
-      netcat-openbsd \
-      nodejs \
-      openssl \
-      pkgconfig \
-      postgresql-dev \
-      python \
-      tzdata \
-      yarn
+# Install libvips for Active Storage preview support
+RUN apt-get update -qq && \
+    apt-get install -y build-essential libvips && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man
 
-
-RUN gem install bundler -v  2.4.7
-RUN bundle config build.nokogiri --use-system-libraries
-RUN bundle check || bundle install
-
+# Our Rails app lives here
 WORKDIR /app
 
+
+# Set production environment
+ENV RAILS_LOG_TO_STDOUT="1" \
+    RAILS_SERVE_STATIC_FILES="true" \
+    RAILS_ENV="production" \
+    BUNDLE_WITHOUT="development"
+
+# Install application gems
 COPY Gemfile Gemfile.lock ./
 
 RUN bundle install
 
-COPY . ./ 
+# Copy application code to the image
+COPY . .
 
-RUN bundle install
+# Precompile bootsnap code for faster boot times
+RUN bundle exec bootsnap precompile --gemfile app/ lib/
 
+# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
+
+# Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-
-CMD ["bash"]
+CMD ["./bin/rails", "server"]
